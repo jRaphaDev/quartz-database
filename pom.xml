@@ -2,31 +2,38 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.raphael</groupId>
-	<artifactId>quartz-example</artifactId>
+	<artifactId>quartz-database</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>quartz-example</name>
+	<name>quartz-database</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
 
 		<!-- Quartz API -->
 		<dependency>
-			<groupId>opensymphony</groupId>
-			<artifactId>quartz</artifactId>
-			<version>1.6.3</version>
+		    <groupId>org.quartz-scheduler</groupId>
+		    <artifactId>quartz</artifactId>
+		    <version>2.2.1</version>
 		</dependency>
-
+		  
 		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
+		    <groupId>org.quartz-scheduler</groupId>
+		    <artifactId>quartz-jobs</artifactId>
+		    <version>2.2.1</version>
+		</dependency>  
+		
+		<dependency>
+   	 		<groupId>commons-dbcp</groupId>
+    		<artifactId>commons-dbcp</artifactId>
+    		<version>1.2.2</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.apache.directory.studio</groupId>
-			<artifactId>org.apache.commons.logging</artifactId>
-			<version>1.1.1</version>
+				
+		<dependency> 
+			<groupId>com.microsoft.sqlserver</groupId> 
+			<artifactId>sqljdbc4</artifactId> 
+			<version>4.0</version>
+			<scope>runtime</scope>
 		</dependency>
 
 	</dependencies>
@@ -42,6 +49,19 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <resources>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
